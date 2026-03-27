@@ -5,7 +5,7 @@ export const siteData = {
   intro:
     "On the path to become an expert on robot navigation and leaving a footprint in the world.",
   photoCaption:
-    "Somewhere in Morocco.",
+    "Bonding with Reachy robot 🤖",
   quickFacts: [
     "from Ecuador 🇪🇨",
     "at Cardiff University",

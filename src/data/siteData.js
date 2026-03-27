@@ -1,15 +1,15 @@
 export const siteData = {
   kicker: "Personal profile",
-  name: "Your Name",
-  role: "Researcher, builder, and thoughtful collaborator",
+  name: "Steven Silva",
+  role: "Robotics teacher and PhD student at Cardiff University",
   intro:
-    "Use this short introduction to explain who you are, what you work on, and the kind of ideas or problems that excite you.",
+    "On the path to become an expert on robot navigation and leaving a footprint in the world.",
   photoCaption:
-    "Replace public/profile-placeholder.svg with your own portrait whenever you're ready.",
+    "Somewhere in Morocco.",
   quickFacts: [
-    "Add your city or institution here",
-    "Highlight one area of expertise",
-    "Mention the kind of collaborations you enjoy",
+    "Cardiff University",
+    "Robot Navigation",
+    "Collaborating with ESPOL and Rice University",
   ],
   primaryLink: {
     label: "See latest project",
@@ -19,45 +19,89 @@ export const siteData = {
     label: "Browse papers",
     href: "#papers",
   },
-  latestProject: {
-    title: "Project title goes here",
-    status: "In progress",
-    year: "2026",
-    summary:
-      "Describe the latest project you want visitors to notice first. Keep it concrete and outcome-focused.",
-    impact:
-      "Add a second sentence on why it matters: the problem it solves, the people it helps, or the idea it explores.",
-    tags: ["Research", "Engineering", "Human-centered design"],
-    linkLabel: "Add project link",
-    href: "#",
-  },
-  papers: [
+  projects: [
     {
-      title: "Paper title placeholder",
-      venue: "Conference or Journal",
+      title: "Project title goes here",
+      status: "In progress",
       year: "2026",
-      description:
-        "Write one or two lines about the paper's core contribution so visitors quickly understand why it matters.",
+      summary:
+        "Describe the latest project you want visitors to notice first. Keep it concrete and outcome-focused.",
+      impact:
+        "Add a second sentence on why it matters: the problem it solves, the people it helps, or the idea it explores.",
+      tags: ["Research", "Engineering", "Human-centered design"],
+      linkLabel: "Add project link",
       href: "#",
-      linkLabel: "Read paper",
     },
     {
-      title: "Another publication",
-      venue: "Workshop or Symposium",
+      title: "A second project",
+      status: "Completed",
       year: "2025",
-      description:
-        "Use this card for a paper, report, preprint, or thesis chapter that you want to feature.",
+      summary:
+        "Use additional project cards for previous work, side projects, or collaborations you still want visitors to explore.",
+      impact:
+        "Keep the description short and scannable so the landing page still feels light.",
+      tags: ["Prototype", "Collaboration"],
+      linkLabel: "Add project link",
       href: "#",
-      linkLabel: "Read paper",
+    },
+  ],
+  papers: [
+    // {
+    //   title:
+    //     "Social Robot Navigation in Public Indoor Crowded Spaces via Hybrid Informed Sampling under Kinodynamic Constraints",
+    //   venue: "IEEE Robotics and Automation Letters (RA-L)",
+    //   year: "2025",
+    //   description:
+    //     "With V. Romero-Cano, N. Verdezoto, and J. D. Hernandez. Decision pending.",
+    // },
+    {
+      title:
+        "Exploring the Perceptions and Challenges of Social Robot Navigation: Two Case Studies in Different Socio-Technical Contexts",
+      venue: "ACM OzCHI 2024",
+      year: "2024",
+      firstAuthor: true,
+      href: "https://dl.acm.org/doi/10.1145/3726986.3727028",
+      description:
+        "With P. Oliinyk, J. Patino, D. Paillacho, J. D. Hernandez, and N. Verdezoto. Presented at the Australian Conference on Human-Computer Interaction in Brisbane, Australia.",
     },
     {
-      title: "A third highlighted work",
-      venue: "Preprint or Thesis",
-      year: "2024",
+      title:
+        "Online Social Robot Navigation in Indoor, Large and Crowded Environments",
+      venue: "IEEE ICRA 2023",
+      year: "2023",
+      firstAuthor: true,
+      href: "https://ieeexplore.ieee.org/document/10160603",
       description:
-        "If you have fewer papers, keep only the cards you need. If you have more, duplicate this object.",
-      href: "#",
-      linkLabel: "Read paper",
+        "With N. Verdezoto, D. Paillacho, S. Millan-Norman, and J. D. Hernandez. IEEE International Conference on Robotics and Automation, London, United Kingdom.",
+    },
+    {
+      title: "Towards Online Socially Acceptable Robot Navigation",
+      venue: "IEEE CASE 2022",
+      year: "2022",
+      firstAuthor: true,
+      href: "https://ieeexplore.ieee.org/document/9926686",
+      description:
+        "With D. Paillacho, N. Verdezoto, and J. D. Hernandez. IEEE International Conference on Automation Science and Engineering, Mexico City, Mexico.",
+    },
+    {
+      title:
+        "Implementation of an UVC Lights Desinfection System for a Differential Robot Applying Security Methods in Indoor",
+      venue: "ICAT 2021 Proceedings",
+      year: "2022",
+      firstAuthor: false,
+      href: "https://link.springer.com/book/10.1007/978-3-031-03884-6?page=2",
+      description:
+        "With R. Velez Burgos, A. P. Ruiz, D. Paillacho Chiluiza, and J. Paillacho Corredores. Published in Applied Technologies: Third International Conference proceedings by Springer Nature.",
+    },
+    {
+      title:
+        "Autonomous Intelligent Navigation For Mobile Robots In Closed Environments",
+      venue: "ICAT 2020 Proceedings",
+      year: "2021",
+      firstAuthor: true,
+      href: "https://link.springer.com/chapter/10.1007/978-3-030-71503-8_30",
+      description:
+        "With D. P. Chiluiza, D. S. Leon, M. G. Pintado, and J. P. Corredores. Published in Applied Technologies: Second International Conference proceedings by Springer Nature.",
     },
   ],
   passions: [
@@ -77,8 +121,6 @@ export const siteData = {
         "Highlight the parts of your work that feel most human: mentoring, writing, open source, fieldwork, or public engagement.",
     },
   ],
-  footerNote:
-    "This starter is a React landing page built with Vite and ready for GitHub Pages deployment.",
-  profileImage: "/profile-placeholder.svg",
+  profileImage: "/profilePic.jpg",
   profileImageAlt: "Placeholder profile illustration",
 };

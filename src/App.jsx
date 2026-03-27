@@ -127,6 +127,19 @@ export default function App() {
             <p className="project-summary">{featuredProject.summary}</p>
             <p className="project-impact">{featuredProject.impact}</p>
 
+            {featuredProject.videoEmbedUrl ? (
+              <div className="project-media">
+                <iframe
+                  className="project-video"
+                  src={featuredProject.videoEmbedUrl}
+                  title={featuredProject.videoTitle ?? featuredProject.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            ) : null}
+
             <div className="tag-row" aria-label="Project tags">
               {featuredProject.tags.map((tag) => (
                 <span className="tag" key={tag}>
@@ -135,11 +148,6 @@ export default function App() {
               ))}
             </div>
 
-            <SmartLink
-              className="text-link"
-              href={featuredProject.href}
-              label={featuredProject.linkLabel}
-            />
           </article>
 
           {otherProjects.length > 0 ? (
@@ -168,11 +176,24 @@ export default function App() {
                       ))}
                     </div>
 
-                    <SmartLink
-                      className="text-link"
-                      href={project.href}
-                      label={project.linkLabel}
-                    />
+                    {project.links?.length ? (
+                      <div className="project-link-row">
+                        {project.links.map((link) => (
+                          <SmartLink
+                            className="text-link"
+                            href={link.href}
+                            key={`${project.title}-${link.label}`}
+                            label={link.label}
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <SmartLink
+                        className="text-link"
+                        href={project.href}
+                        label={project.linkLabel}
+                      />
+                    )}
                   </article>
                 ))}
               </div>
@@ -227,6 +248,15 @@ export default function App() {
           <div className="passions-grid">
             {passions.map((passion) => (
               <article className="passion-card" key={passion.title}>
+                {passion.image ? (
+                  <div className="passion-card-media">
+                    <img
+                      className="passion-card-image"
+                      src={passion.image}
+                      alt={passion.imageAlt ?? passion.title}
+                    />
+                  </div>
+                ) : null}
                 <h3 className="passion-title">{passion.title}</h3>
                 <p className="passion-description">{passion.description}</p>
               </article>

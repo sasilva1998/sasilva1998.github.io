@@ -395,6 +395,23 @@ h2 {
   margin: 1rem 0 0;
 }
 
+.project-media {
+  margin: 1.4rem auto 0;
+  overflow: hidden;
+  border-radius: 24px;
+  border: 1px solid rgba(21, 35, 48, 0.08);
+  box-shadow: 0 14px 34px rgba(39, 48, 56, 0.1);
+  max-width: 560px;
+}
+
+.project-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: rgba(21, 35, 48, 0.08);
+}
+
 .tag-row {
   display: flex;
   flex-wrap: wrap;
@@ -438,6 +455,17 @@ h2 {
   display: inline-flex;
   margin-top: 1.3rem;
   font-weight: 600;
+}
+
+.project-link-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.3rem;
+}
+
+.project-link-row .text-link {
+  margin-top: 0;
 }
 
 .papers-grid,
@@ -512,6 +540,21 @@ h2 {
   min-height: 100%;
   background:
     linear-gradient(160deg, rgba(255, 249, 241, 0.96), rgba(246, 234, 214, 0.9));
+}
+
+.passion-card-media {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.passion-card-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid rgba(21, 35, 48, 0.08);
+  box-shadow: 0 10px 24px rgba(39, 48, 56, 0.1);
 }
 
 .site-footer {

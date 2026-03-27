@@ -7,8 +7,9 @@ export const siteData = {
   photoCaption:
     "Somewhere in Morocco.",
   quickFacts: [
-    "Cardiff University",
-    "Robot Navigation",
+    "from Ecuador 🇪🇨",
+    "at Cardiff University",
+    "Becoming robot navigation expert",
     "Collaborating with ESPOL and Rice University",
   ],
   primaryLink: {
@@ -21,28 +22,38 @@ export const siteData = {
   },
   projects: [
     {
-      title: "Project title goes here",
-      status: "In progress",
-      year: "2026",
+      title: "Exploring Social Robot Navigation Across Two Real-World Contexts",
+      status: "Published",
+      year: "2024",
       summary:
-        "Describe the latest project you want visitors to notice first. Keep it concrete and outcome-focused.",
+        "This project studies what makes a navigating service robot feel acceptable in real social spaces, using qualitative case studies in Ecuador and the UK with two different robots.",
       impact:
-        "Add a second sentence on why it matters: the problem it solves, the people it helps, or the idea it explores.",
-      tags: ["Research", "Engineering", "Human-centered design"],
-      linkLabel: "Add project link",
-      href: "#",
+        "The findings highlight how speed, appearance, emotional responses, and spatial constraints shape people’s comfort and acceptance of social robot navigation in indoor environments.",
+      tags: ["Social Robot Navigation", "HRI", "Qualitative Study", "OzCHI 2024"],
+      linkLabel: "Read paper",
+      href: "https://dl.acm.org/doi/10.1145/3726986.3727028",
+      videoEmbedUrl: "https://www.youtube-nocookie.com/embed/dFreXVsIJmc",
+      videoTitle: "Video demonstration of the social robot navigation project",
     },
     {
-      title: "A second project",
+      title: "Online Social Robot Navigation in Large Indoor Crowds",
       status: "Completed",
-      year: "2025",
+      year: "2023",
       summary:
-        "Use additional project cards for previous work, side projects, or collaborations you still want visitors to explore.",
+        "This project focused on enabling robots to navigate online through large and crowded indoor environments while remaining socially aware around people.",
       impact:
-        "Keep the description short and scannable so the landing page still feels light.",
-      tags: ["Prototype", "Collaboration"],
-      linkLabel: "Add project link",
-      href: "#",
+        "It brought together real-time navigation, crowd interaction, and social acceptability to study how robots can move safely and naturally in busy public spaces.",
+      tags: ["Social Robot Navigation", "ICRA 2023", "Crowded Environments"],
+      links: [
+        {
+          label: "Watch video",
+          href: "https://www.youtube.com/watch?v=Gq149wFVj7A",
+        },
+        {
+          label: "GitHub repository",
+          href: "https://github.com/CardiffUniversityComputationalRobotics/social-multi-fed-nav-stack",
+        },
+      ],
     },
   ],
   papers: [
@@ -106,19 +117,20 @@ export const siteData = {
   ],
   passions: [
     {
-      title: "Curiosity that spans disciplines",
+      title: "Vivid Crossfiter 🏋️",
       description:
-        "Use this space for the themes, communities, or causes you care about beyond a single project.",
+        "Been doing crossfit for about 10 years (no serious injuries) and haven't been able to do it constantly everyday. I like running and anything related to doing sports.",
+      // image: "/running.jpg",
     },
     {
-      title: "Building things with care",
+      title: "Playing videogames 🎮",
       description:
-        "This card works well for a craft, technical focus, or way of working that reflects your personality.",
+        "Play videogames as a hobby, currently loving street fighter 6 and doing my best to finish the latest resident evil game while coping with my research.",
     },
     {
-      title: "Teaching, learning, and sharing",
+      title: "Teaching, learning, and sharing 🤖",
       description:
-        "Highlight the parts of your work that feel most human: mentoring, writing, open source, fieldwork, or public engagement.",
+        "As part of the FunPython community from Ecuador, I love to share my experiences and mentor younger enthusiast in robotics. Enjoy teaching what I know about robotics and encouraging others to try new things and collaborate.",
     },
   ],
   profileImage: "/profilePic.jpg",

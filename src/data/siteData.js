@@ -55,6 +55,26 @@ export const siteData = {
         },
       ],
     },
+    {
+      title: "Design and implementation of an autonomous mobile disinfection robot for social navigation in closed and dynamic environments",
+      status: "Completed",
+      year: "2021",
+      summary:
+        "Designed and assembled a Covid disinfecting robot that moves autonomously while detecting people and avoiding collisions. The robot would move around while disinfecting spaces by the use of UV lights which would turn off in the presence of humans.",
+      impact:
+        "Showed the advantages of using UV lights for indoor spaces disinfection and how a robot can be built with commercial hardware and programmed with the use of Python, C++ and ROS1.",
+      tags: ["Social Robot Navigation", "Graduation Project", "Crowded Environments"],
+      links: [
+        {
+          label: "Thesis paper",
+          href: "https://www.dspace.espol.edu.ec/handle/123456789/52776",
+        },
+        {
+          label: "Gitlab Repository",
+          href: "https://gitlab.com/dpailla/amr",
+        },
+      ],
+    },
   ],
   papers: [
     // {

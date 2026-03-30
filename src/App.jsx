@@ -61,7 +61,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    document.title = `${name} | Personal Landing Page`;
+    document.title = `${name} | Profile Page`;
   }, [name]);
 
   return (

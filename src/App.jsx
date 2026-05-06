@@ -97,8 +97,6 @@ function ProjectCard({ project, compact = false, showTitle = false }) {
 }
 
 function ProjectsPage({ projects }) {
-  const project = projects[0];
-
   return (
     <div className="page-shell" id="top">
       <header className="hero section reveal delay-1">
@@ -117,8 +115,8 @@ function ProjectsPage({ projects }) {
           <p className="eyebrow">Projects</p>
           <h1>Projects</h1>
 
-          {project ? (
-            <div className="subpage-project">
+          {projects.map((project) => (
+            <div className="subpage-project" key={`${project.title}-${project.year}`}>
               <div className="project-meta">
                 <span className="pill">{project.status}</span>
                 <span className="project-year">{project.year}</span>
@@ -147,18 +145,20 @@ function ProjectsPage({ projects }) {
                 ))}
               </div>
 
-              <div className="project-link-row">
-                {project.links.map((link) => (
-                  <SmartLink
-                    className="text-link"
-                    href={link.href}
-                    key={`${project.title}-${link.label}`}
-                    label={link.label}
-                  />
-                ))}
-              </div>
+              {project.links?.length ? (
+                <div className="project-link-row">
+                  {project.links.map((link) => (
+                    <SmartLink
+                      className="text-link"
+                      href={link.href}
+                      key={`${project.title}-${link.label}`}
+                      label={link.label}
+                    />
+                  ))}
+                </div>
+              ) : null}
             </div>
-          ) : null}
+          ))}
 
           <div className="subpage-actions">
             <SmartLink

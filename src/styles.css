@@ -166,6 +166,11 @@ code {
   margin-top: 1.5rem;
 }
 
+.subpage-project + .subpage-project {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
 .subpage-project-title {
   margin: 1rem 0 0;
   font-size: clamp(1.8rem, 3.5vw, 2.8rem);

@@ -79,6 +79,30 @@ export const siteData = {
         },
       ],
     },
+    {
+      title: "MicroPython rosserial support for ROS 1",
+      status: "Open source",
+      year: "2020-2021",
+      summary:
+        "Created a small set of MicroPython libraries to support rosserial communication between ROS 1 and microcontrollers such as the ESP32.",
+      impact:
+        "The toolkit includes a rosserial implementation for MicroPython with topic advertising, publishing, and subscribing; a message generator for creating uPy classes from ROS .msg files; and the rosserial_msgs TopicInfo support needed for topic negotiation.",
+      tags: ["MicroPython", "ROS 1", "rosserial", "ESP32", "Open Source"],
+      links: [
+        {
+          label: "uPy-rosserial",
+          href: "https://github.com/FunPythonEC/uPy-rosserial",
+        },
+        {
+          label: "uPy-genpy",
+          href: "https://github.com/FunPythonEC/uPy-genpy",
+        },
+        {
+          label: "uPy-rosserial_msgs",
+          href: "https://github.com/FunPythonEC/uPy-rosserial_msgs",
+        },
+      ],
+    },
   ],
   papers: [
     // {

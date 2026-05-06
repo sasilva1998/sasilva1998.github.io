@@ -1,5 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { siteData } from "./data/siteData";
+
+const PROJECTS_ROUTE = "#/projects";
+
+const getPageFromHash = () =>
+  window.location.hash === PROJECTS_ROUTE ? "projects" : "home";
 
 const isExternalLink = (href = "") =>
   href.startsWith("http://") ||
@@ -33,8 +38,144 @@ function SectionHeading({ eyebrow, title }) {
   );
 }
 
+function ProjectCard({ project, compact = false, showTitle = false }) {
+  return (
+    <article className={`project-card${compact ? " project-card-compact" : ""}`}>
+      <div className="project-meta">
+        <span className="pill">{project.status}</span>
+        <span className="project-year">{project.year}</span>
+      </div>
+
+      {showTitle ? <h3 className="project-card-title">{project.title}</h3> : null}
+
+      {project.summary ? <p className="project-summary">{project.summary}</p> : null}
+      {project.impact ? <p className="project-impact">{project.impact}</p> : null}
+
+      {project.videoEmbedUrl ? (
+        <div className="project-media">
+          <iframe
+            className="project-video"
+            src={project.videoEmbedUrl}
+            title={project.videoTitle ?? project.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+      ) : null}
+
+      {project.tags?.length ? (
+        <div className="tag-row" aria-label="Project tags">
+          {project.tags.map((tag) => (
+            <span className="tag" key={tag}>
+              {tag}
+            </span>
+          ))}
+        </div>
+      ) : null}
+
+      {project.links?.length ? (
+        <div className="project-link-row">
+          {project.links.map((link) => (
+            <SmartLink
+              className="text-link"
+              href={link.href}
+              key={`${project.title}-${link.label}`}
+              label={link.label}
+            />
+          ))}
+        </div>
+      ) : (
+        <SmartLink
+          className="text-link"
+          href={project.href}
+          label={project.linkLabel}
+        />
+      )}
+    </article>
+  );
+}
+
+function ProjectsPage({ projects }) {
+  const project = projects[0];
+
+  return (
+    <div className="page-shell" id="top">
+      <header className="hero section reveal delay-1">
+        <div className="topbar">
+          <a className="brand-mark" href="#top" aria-label="Back to profile">
+            Profile
+          </a>
+          <nav className="top-nav" aria-label="Main navigation">
+            <a href="#project">Latest Project</a>
+            <a href="#papers">Papers</a>
+            <a href="#passions">Passions</a>
+          </nav>
+        </div>
+
+        <div className="subpage-copy">
+          <p className="eyebrow">Projects</p>
+          <h1>Projects</h1>
+
+          {project ? (
+            <div className="subpage-project">
+              <div className="project-meta">
+                <span className="pill">{project.status}</span>
+                <span className="project-year">{project.year}</span>
+              </div>
+
+              <h2 className="subpage-project-title">{project.title}</h2>
+
+              <div className="subpage-project-layout">
+                <div className="subpage-project-copy">
+                  <p className="project-summary">{project.summary}</p>
+                  <p className="project-impact">{project.impact}</p>
+                </div>
+
+                {project.image ? (
+                  <figure className="subpage-project-media">
+                    <img src={project.image} alt={project.imageAlt ?? project.title} />
+                  </figure>
+                ) : null}
+              </div>
+
+              <div className="tag-row" aria-label="Project tags">
+                {project.tags.map((tag) => (
+                  <span className="tag" key={tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="project-link-row">
+                {project.links.map((link) => (
+                  <SmartLink
+                    className="text-link"
+                    href={link.href}
+                    key={`${project.title}-${link.label}`}
+                    label={link.label}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : null}
+
+          <div className="subpage-actions">
+            <SmartLink
+              className="button button-secondary"
+              href="#project"
+              label="Back to main page"
+            />
+          </div>
+        </div>
+      </header>
+    </div>
+  );
+}
+
 export default function App() {
   const {
+    featuredProject: configuredFeaturedProject,
     intro,
     kicker,
     name,
@@ -49,8 +190,8 @@ export default function App() {
     role,
     secondaryLink,
   } = siteData;
-  const [latestProject, ...otherProjects] = projects;
-  const featuredProject = latestProject ?? {
+  const [page, setPage] = useState(getPageFromHash);
+  const fallbackProject = {
     title: "Add your first project",
     status: "Coming soon",
     year: "",
@@ -59,10 +200,40 @@ export default function App() {
     impact: "",
     tags: [],
   };
+  const featuredProject = configuredFeaturedProject ?? projects[0] ?? fallbackProject;
+  const projectArchive = configuredFeaturedProject ? projects : projects.slice(1);
 
   useEffect(() => {
-    document.title = `${name} | Profile Page`;
-  }, [name]);
+    const handleHashChange = () => setPage(getPageFromHash());
+
+    window.addEventListener("hashchange", handleHashChange);
+    return () => window.removeEventListener("hashchange", handleHashChange);
+  }, []);
+
+  useEffect(() => {
+    document.title =
+      page === "projects" ? `${name} | Projects` : `${name} | Profile Page`;
+  }, [name, page]);
+
+  useEffect(() => {
+    if (page !== "home") {
+      return;
+    }
+
+    const hash = window.location.hash;
+
+    if (!hash || hash.startsWith("#/")) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      document.getElementById(hash.slice(1))?.scrollIntoView();
+    });
+  }, [page]);
+
+  if (page === "projects") {
+    return <ProjectsPage projects={projectArchive} />;
+  }
 
   return (
     <div className="page-shell" id="top">
@@ -118,85 +289,15 @@ export default function App() {
         <section className="section reveal delay-2" id="project">
           <SectionHeading eyebrow="Latest Project" title={featuredProject.title} />
 
-          <article className="project-card">
-            <div className="project-meta">
-              <span className="pill">{featuredProject.status}</span>
-              <span className="project-year">{featuredProject.year}</span>
-            </div>
+          <ProjectCard project={featuredProject} />
 
-            <p className="project-summary">{featuredProject.summary}</p>
-            <p className="project-impact">{featuredProject.impact}</p>
-
-            {featuredProject.videoEmbedUrl ? (
-              <div className="project-media">
-                <iframe
-                  className="project-video"
-                  src={featuredProject.videoEmbedUrl}
-                  title={featuredProject.videoTitle ?? featuredProject.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            ) : null}
-
-            <div className="tag-row" aria-label="Project tags">
-              {featuredProject.tags.map((tag) => (
-                <span className="tag" key={tag}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-
-          </article>
-
-          {otherProjects.length > 0 ? (
-            <div className="more-projects">
-              <p className="subsection-label">More Projects</p>
-              <div className="projects-grid">
-                {otherProjects.map((project) => (
-                  <article
-                    className="project-card project-card-compact"
-                    key={`${project.title}-${project.year}`}
-                  >
-                    <div className="project-meta">
-                      <span className="pill">{project.status}</span>
-                      <span className="project-year">{project.year}</span>
-                    </div>
-
-                    <h3 className="project-card-title">{project.title}</h3>
-                    <p className="project-summary">{project.summary}</p>
-                    <p className="project-impact">{project.impact}</p>
-
-                    <div className="tag-row" aria-label="Project tags">
-                      {project.tags.map((tag) => (
-                        <span className="tag" key={tag}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {project.links?.length ? (
-                      <div className="project-link-row">
-                        {project.links.map((link) => (
-                          <SmartLink
-                            className="text-link"
-                            href={link.href}
-                            key={`${project.title}-${link.label}`}
-                            label={link.label}
-                          />
-                        ))}
-                      </div>
-                    ) : (
-                      <SmartLink
-                        className="text-link"
-                        href={project.href}
-                        label={project.linkLabel}
-                      />
-                    )}
-                  </article>
-                ))}
-              </div>
+          {projectArchive.length > 0 ? (
+            <div className="section-actions">
+              <SmartLink
+                className="button button-secondary"
+                href={PROJECTS_ROUTE}
+                label="Check out more projects"
+              />
             </div>
           ) : null}
         </section>

@@ -20,41 +20,43 @@ export const siteData = {
     label: "Browse papers",
     href: "#papers",
   },
+  featuredProject: {
+    title: "PhD Project: Social Robot Navigation in Real-World Indoor Environments",
+    status: "PhD project",
+    year: "2023-2026",
+    summary:
+      "My PhD project studies how mobile service robots can navigate indoor public spaces while remaining socially acceptable around people, combining real-world user studies with online navigation in large crowds.",
+    impact:
+      "This work connects the technical side of crowd-aware navigation with people's perceptions of comfort, safety, speed, appearance, and spatial behavior across Ecuador and the UK.",
+    tags: [
+      "Social Robot Navigation",
+      "HRI",
+      "Crowded Environments",
+      "OzCHI 2024",
+      "ICRA 2023",
+    ],
+    videoEmbedUrl: "https://www.youtube-nocookie.com/embed/dFreXVsIJmc",
+    videoTitle: "Video demonstration of the social robot navigation project",
+    links: [
+      {
+        label: "Read OzCHI paper",
+        href: "https://dl.acm.org/doi/10.1145/3726986.3727028",
+      },
+      {
+        label: "Read ICRA paper",
+        href: "https://ieeexplore.ieee.org/document/10160603",
+      },
+      {
+        label: "Watch ICRA video",
+        href: "https://www.youtube.com/watch?v=Gq149wFVj7A",
+      },
+      {
+        label: "GitHub repository",
+        href: "https://github.com/CardiffUniversityComputationalRobotics/social-multi-fed-nav-stack",
+      },
+    ],
+  },
   projects: [
-    {
-      title: "Exploring Social Robot Navigation Across Two Real-World Contexts",
-      status: "Published",
-      year: "2024",
-      summary:
-        "This project studies what makes a navigating service robot feel acceptable in real social spaces, using qualitative case studies in Ecuador and the UK with two different robots.",
-      impact:
-        "The findings highlight how speed, appearance, emotional responses, and spatial constraints shape people’s comfort and acceptance of social robot navigation in indoor environments.",
-      tags: ["Social Robot Navigation", "HRI", "Qualitative Study", "OzCHI 2024"],
-      linkLabel: "Read paper",
-      href: "https://dl.acm.org/doi/10.1145/3726986.3727028",
-      videoEmbedUrl: "https://www.youtube-nocookie.com/embed/dFreXVsIJmc",
-      videoTitle: "Video demonstration of the social robot navigation project",
-    },
-    {
-      title: "Online Social Robot Navigation in Large Indoor Crowds",
-      status: "Completed",
-      year: "2023",
-      summary:
-        "This project focused on enabling robots to navigate online through large and crowded indoor environments while remaining socially aware around people.",
-      impact:
-        "It brought together real-time navigation, crowd interaction, and social acceptability to study how robots can move safely and naturally in busy public spaces.",
-      tags: ["Social Robot Navigation", "ICRA 2023", "Crowded Environments"],
-      links: [
-        {
-          label: "Watch video",
-          href: "https://www.youtube.com/watch?v=Gq149wFVj7A",
-        },
-        {
-          label: "GitHub repository",
-          href: "https://github.com/CardiffUniversityComputationalRobotics/social-multi-fed-nav-stack",
-        },
-      ],
-    },
     {
       title: "Design and implementation of an autonomous mobile disinfection robot for social navigation in closed and dynamic environments",
       status: "Completed",
@@ -63,6 +65,8 @@ export const siteData = {
         "Designed and assembled a Covid disinfecting robot that moves autonomously while detecting people and avoiding collisions. The robot would move around while disinfecting spaces by the use of UV lights which would turn off in the presence of humans.",
       impact:
         "Showed the advantages of using UV lights for indoor spaces disinfection and how a robot can be built with commercial hardware and programmed with the use of Python, C++ and ROS1.",
+      image: "/covibot.png",
+      imageAlt: "Covibot autonomous mobile disinfection robot",
       tags: ["Social Robot Navigation", "Graduation Project", "Crowded Environments"],
       links: [
         {

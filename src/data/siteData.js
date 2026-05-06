@@ -1,5 +1,5 @@
 export const siteData = {
-  kicker: "Personal profile",
+  // kicker: "Personal profile",
   name: "Steven Silva",
   role: "Robotics teacher and PhD student at Cardiff University",
   intro:

@@ -87,6 +87,16 @@ export const siteData = {
     // },
     {
       title:
+        "Social Robot Navigation Under Kinodynamic Constraints Using Learning-Informed Sampling for Indoor Environments",
+      venue: "IEEE RA-L 2026",
+      year: "2026",
+      firstAuthor: true,
+      // href: "https://dl.acm.org/doi/10.1145/3726986.3727028",
+      description:
+        "With V. Romero-Cano and J. D. Hernandez. To be published at IEEE Robotics and Automation Letters",
+    },
+    {
+      title:
         "Exploring the Perceptions and Challenges of Social Robot Navigation: Two Case Studies in Different Socio-Technical Contexts",
       venue: "ACM OzCHI 2024",
       year: "2024",

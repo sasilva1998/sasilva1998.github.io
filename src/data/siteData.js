@@ -108,7 +108,7 @@ export const siteData = {
     summary:
       "My PhD project studies how mobile service robots can navigate indoor public spaces while remaining socially acceptable around people, combining real-world user studies with online navigation in large crowds.",
     impact:
-      "This work connects the technical side of crowd-aware navigation with people's perceptions of comfort, safety, speed, appearance, and spatial behavior across Ecuador and the UK.",
+      "Below you will find a video of my most recent accepted paper which combines machine learning for kinodynamic planning in indoor social environments.",
     tags: [
       "Social Robot Navigation",
       "HRI",
@@ -116,7 +116,7 @@ export const siteData = {
       "OzCHI 2024",
       "ICRA 2023",
     ],
-    videoEmbedUrl: "https://www.youtube-nocookie.com/embed/dFreXVsIJmc",
+    videoEmbedUrl: "https://www.youtube-nocookie.com/embed/nIs93xLLCWc",
     videoTitle: "Video demonstration of the social robot navigation project",
     lastCommit: "Last commit: Apr 29, 2026",
     lastCommitDate: "2026-04-29",
@@ -274,14 +274,6 @@ export const siteData = {
     },
   ],
   papers: [
-    // {
-    //   title:
-    //     "Social Robot Navigation in Public Indoor Crowded Spaces via Hybrid Informed Sampling under Kinodynamic Constraints",
-    //   venue: "IEEE Robotics and Automation Letters (RA-L)",
-    //   year: "2025",
-    //   description:
-    //     "With V. Romero-Cano, N. Verdezoto, and J. D. Hernandez. Decision pending.",
-    // },
     {
       title:
         "Social Robot Navigation Under Kinodynamic Constraints Using Learning-Informed Sampling for Indoor Environments",
@@ -343,6 +335,11 @@ export const siteData = {
     },
   ],
   passions: [
+        {
+      title: "Teaching, learning, and sharing 🤖",
+      description:
+        "As part of the FunPython community from Ecuador, I love to share my experiences and mentor younger enthusiast in robotics. Enjoy teaching what I know about robotics and encouraging others to try new things and collaborate.",
+    },
     {
       title: "Vivid Crossfiter 🏋️",
       description:
@@ -353,11 +350,6 @@ export const siteData = {
       title: "Playing videogames 🎮",
       description:
         "Play videogames as a hobby, currently loving street fighter 6 and doing my best to finish the latest resident evil game while coping with my research.",
-    },
-    {
-      title: "Teaching, learning, and sharing 🤖",
-      description:
-        "As part of the FunPython community from Ecuador, I love to share my experiences and mentor younger enthusiast in robotics. Enjoy teaching what I know about robotics and encouraging others to try new things and collaborate.",
     },
   ],
   profileImage: "/profilePic.jpg",

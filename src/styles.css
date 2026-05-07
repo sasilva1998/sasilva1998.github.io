@@ -324,6 +324,7 @@ h1 {
 .project-card,
 .paper-card,
 .passion-card,
+.skill-card,
 .site-footer {
   position: relative;
   overflow: hidden;
@@ -388,6 +389,95 @@ h1 {
   display: grid;
   gap: 0.5rem;
   margin-bottom: 1.25rem;
+}
+
+.skills-section {
+  display: grid;
+  gap: 1rem;
+}
+
+.skills-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: 1rem;
+  align-items: end;
+}
+
+.skills-intro .section-heading {
+  margin-bottom: 0;
+}
+
+.skills-summary {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.skills-highlight-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.skill-highlight {
+  display: flex;
+  min-height: 64px;
+  align-items: center;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(21, 147, 107, 0.18);
+  background: rgba(255, 255, 255, 0.54);
+  color: var(--accent-deep);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.skill-card {
+  min-height: 100%;
+  padding: 1.15rem;
+}
+
+.skill-card-title {
+  margin: 0 0 0.9rem;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.52rem 0.68rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(21, 35, 48, 0.08);
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.15;
+}
+
+.research-strip {
+  padding: 1rem 1.15rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(21, 147, 107, 0.14);
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.skill-chip-research {
+  color: var(--accent-deep);
+  background: rgba(21, 147, 107, 0.1);
 }
 
 h2 {
@@ -655,10 +745,16 @@ h2 {
 @media (max-width: 900px) {
   .hero-grid,
   .subpage-project-layout,
+  .skills-intro,
   .projects-grid,
   .papers-grid,
   .passions-grid {
     grid-template-columns: 1fr;
+  }
+
+  .skills-highlight-row,
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-copy {
@@ -680,6 +776,7 @@ h2 {
   .project-card,
   .paper-card,
   .passion-card,
+  .skill-card,
   .site-footer,
   .portrait-card {
     border-radius: 24px;
@@ -706,8 +803,14 @@ h2 {
   .project-card,
   .paper-card,
   .passion-card,
+  .skill-card,
   .site-footer {
     padding: 1.15rem;
+  }
+
+  .skills-highlight-row,
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 }
 

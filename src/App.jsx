@@ -50,6 +50,54 @@ function SectionHeading({ eyebrow, title }) {
   );
 }
 
+function SkillsSnapshot({ highlights, groups, researchStrengths, summary }) {
+  return (
+    <section className="section skills-section reveal delay-2" id="skills">
+      <div className="skills-intro">
+        <div className="section-heading">
+          <p className="eyebrow">Skills</p>
+          <h2>Robotics, software, hardware, and research.</h2>
+        </div>
+        <p className="skills-summary">{summary}</p>
+      </div>
+
+      <div className="skills-highlight-row" aria-label="Core strengths">
+        {highlights.map((highlight) => (
+          <span className="skill-highlight" key={highlight}>
+            {highlight}
+          </span>
+        ))}
+      </div>
+
+      <div className="skills-grid">
+        {groups.map((group) => (
+          <article className="skill-card" key={group.title}>
+            <h3 className="skill-card-title">{group.title}</h3>
+            <div className="skill-list" aria-label={`${group.title} skills`}>
+              {group.skills.map((skill) => (
+                <span className="skill-chip" key={skill}>
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="research-strip">
+        <p className="subsection-label">Research Strengths</p>
+        <div className="skill-list" aria-label="Research strengths">
+          {researchStrengths.map((strength) => (
+            <span className="skill-chip skill-chip-research" key={strength}>
+              {strength}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ProjectCard({ project, compact = false, showTitle = false }) {
   return (
     <article className={`project-card${compact ? " project-card-compact" : ""}`}>
@@ -119,6 +167,7 @@ function ProjectsPage({ projects }) {
             Profile
           </a>
           <nav className="top-nav" aria-label="Main navigation">
+            <a href="#skills">Skills</a>
             <a href="#project">Latest Project</a>
             <a href="#papers">Papers</a>
             <a href="#passions">Passions</a>
@@ -203,8 +252,12 @@ export default function App() {
     profileImage,
     profileImageAlt,
     quickFacts,
+    researchStrengths = [],
     role,
     secondaryLink,
+    skillGroups = [],
+    skillHighlights = [],
+    skillSummary,
   } = siteData;
   const [page, setPage] = useState(getPageFromHash);
   const fallbackProject = {
@@ -261,6 +314,7 @@ export default function App() {
             Profile
           </a>
           <nav className="top-nav" aria-label="Main navigation">
+            <a href="#skills">Skills</a>
             <a href="#project">Latest Project</a>
             <a href="#papers">Papers</a>
             <a href="#passions">Passions</a>
@@ -304,6 +358,13 @@ export default function App() {
       </header>
 
       <main>
+        <SkillsSnapshot
+          groups={skillGroups}
+          highlights={skillHighlights}
+          researchStrengths={researchStrengths}
+          summary={skillSummary}
+        />
+
         <section className="section reveal delay-2" id="project">
           <SectionHeading eyebrow="Latest Project" title={featuredProject.title} />
 

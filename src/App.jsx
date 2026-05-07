@@ -6,6 +6,18 @@ const PROJECTS_ROUTE = "#/projects";
 const getPageFromHash = () =>
   window.location.hash === PROJECTS_ROUTE ? "projects" : "home";
 
+const sortProjectsByLastCommit = (projects = []) =>
+  [...projects].sort((projectA, projectB) => {
+    const dateA = projectA.lastCommitDate
+      ? new Date(projectA.lastCommitDate).getTime()
+      : 0;
+    const dateB = projectB.lastCommitDate
+      ? new Date(projectB.lastCommitDate).getTime()
+      : 0;
+
+    return dateB - dateA;
+  });
+
 const isExternalLink = (href = "") =>
   href.startsWith("http://") ||
   href.startsWith("https://") ||
@@ -43,7 +55,9 @@ function ProjectCard({ project, compact = false, showTitle = false }) {
     <article className={`project-card${compact ? " project-card-compact" : ""}`}>
       <div className="project-meta">
         <span className="pill">{project.status}</span>
-        <span className="project-year">{project.year}</span>
+        <span className="project-year">
+          {[project.year, project.lastCommit].filter(Boolean).join(" - ")}
+        </span>
       </div>
 
       {showTitle ? <h3 className="project-card-title">{project.title}</h3> : null}
@@ -119,7 +133,9 @@ function ProjectsPage({ projects }) {
             <div className="subpage-project" key={`${project.title}-${project.year}`}>
               <div className="project-meta">
                 <span className="pill">{project.status}</span>
-                <span className="project-year">{project.year}</span>
+                <span className="project-year">
+                  {[project.year, project.lastCommit].filter(Boolean).join(" - ")}
+                </span>
               </div>
 
               <h2 className="subpage-project-title">{project.title}</h2>
@@ -201,7 +217,9 @@ export default function App() {
     tags: [],
   };
   const featuredProject = configuredFeaturedProject ?? projects[0] ?? fallbackProject;
-  const projectArchive = configuredFeaturedProject ? projects : projects.slice(1);
+  const projectArchive = sortProjectsByLastCommit(
+    configuredFeaturedProject ? projects : projects.slice(1),
+  );
 
   useEffect(() => {
     const handleHashChange = () => setPage(getPageFromHash());

@@ -37,6 +37,8 @@ export const siteData = {
     ],
     videoEmbedUrl: "https://www.youtube-nocookie.com/embed/dFreXVsIJmc",
     videoTitle: "Video demonstration of the social robot navigation project",
+    lastCommit: "Last commit: Apr 29, 2026",
+    lastCommitDate: "2026-04-29",
     links: [
       {
         label: "Read OzCHI paper",
@@ -58,9 +60,29 @@ export const siteData = {
   },
   projects: [
     {
+      title: "OMPL motion planning tutorials",
+      status: "Tutorial",
+      year: "Past project",
+      lastCommit: "Last commit: Nov 5, 2022",
+      lastCommitDate: "2022-11-05",
+      summary:
+        "Created tutorial material for learning the Open Motion Planning Library in a ROS workspace, based on a core planning tutorial and adapted as a practical package.",
+      impact:
+        "The project includes launchable planning examples that show how to run OMPL with SimpleSetup as well as a lower-level Planner and ProblemDefinition flow, helping robotics learners inspect and understand the C++ planning code.",
+      tags: ["OMPL", "ROS", "Motion Planning", "C++", "Tutorial"],
+      links: [
+        {
+          label: "OMPL tutorials repository",
+          href: "https://github.com/sasilva1998/ompl_tutorials",
+        },
+      ],
+    },
+    {
       title: "Design and implementation of an autonomous mobile disinfection robot for social navigation in closed and dynamic environments",
       status: "Completed",
       year: "2021",
+      lastCommit: "Last commit: Sep 26, 2022",
+      lastCommitDate: "2022-09-26",
       summary:
         "Designed and assembled a Covid disinfecting robot that moves autonomously while detecting people and avoiding collisions. The robot would move around while disinfecting spaces by the use of UV lights which would turn off in the presence of humans.",
       impact:
@@ -80,14 +102,34 @@ export const siteData = {
       ],
     },
     {
+      title: "Pozyx bridge for ROS",
+      status: "Open source",
+      year: "2022",
+      lastCommit: "Last commit: May 4, 2022",
+      lastCommitDate: "2022-05-04",
+      summary:
+        "Supported a ROS bridge for Pozyx positioning hardware, connecting a Pozyx gateway with ROS so tag information can be consumed in robotics systems.",
+      impact:
+        "The package is split into ROS messages for publishing Pozyx tag data and bridge code that retrieves gateway information through MQTT, making indoor positioning data available through ROS topics.",
+      tags: ["Pozyx", "ROS", "MQTT", "Indoor Positioning", "UWB"],
+      links: [
+        {
+          label: "Pozyx bridge repository",
+          href: "https://github.com/CardiffUniversityComputationalRobotics/pozyx_bridge",
+        },
+      ],
+    },
+    {
       title: "MicroPython rosserial support for ROS 1",
       status: "Open source",
       year: "2020-2021",
+      lastCommit: "Latest repo commit: Oct 7, 2021",
+      lastCommitDate: "2021-10-07",
       summary:
         "Created a small set of MicroPython libraries to support rosserial communication between ROS 1 and microcontrollers such as the ESP32.",
       impact:
         "The toolkit includes a rosserial implementation for MicroPython with topic advertising, publishing, and subscribing; a message generator for creating uPy classes from ROS .msg files; and the rosserial_msgs TopicInfo support needed for topic negotiation.",
-        image: "/urosserial.jpeg",
+      image: "/urosserial.jpeg",
       imageAlt: "Example of use of rosserial for micropython.",
       tags: ["MicroPython", "ROS 1", "rosserial", "ESP32", "Open Source"],
       links: [
@@ -102,6 +144,50 @@ export const siteData = {
         {
           label: "uPy-rosserial_msgs",
           href: "https://github.com/FunPythonEC/uPy-rosserial_msgs",
+        },
+      ],
+    },
+    {
+      title: "MicroPython support for Dynamixel and Lewansoul servo motors",
+      status: "Open source",
+      year: "Past project",
+      lastCommit: "Latest repo commit: Oct 21, 2020",
+      lastCommitDate: "2020-10-21",
+      summary:
+        "Built MicroPython libraries to control several smart servo motor families from ESP boards, including Dynamixel XL-320, Dynamixel AX-12, and Lewansoul LX-16 servos.",
+      impact:
+        "These libraries wrap UART-based servo communication and expose practical methods for packet creation, ID and baudrate setup, angle and speed commands, torque control, and reading servo state, making it easier to prototype robotics projects with MicroPython.",
+      tags: ["MicroPython", "Servo Motors", "Dynamixel", "Lewansoul", "ESP32"],
+      links: [
+        {
+          label: "XL-320 MicroPython",
+          href: "https://github.com/FunPythonEC/xl320_upy",
+        },
+        {
+          label: "AX-12 MicroPython",
+          href: "https://github.com/FunPythonEC/AX12_uPy",
+        },
+        {
+          label: "Lewansoul LX-16 MicroPython",
+          href: "https://github.com/FunPythonEC/uPy_Lewansoul_LX-16",
+        },
+      ],
+    },
+    {
+      title: "Human trajectory predictor for ROS 2",
+      status: "ROS 2 package",
+      year: "2025-2026",
+      lastCommit: "Last commit: Apr 14, 2026",
+      lastCommitDate: "2026-04-14",
+      summary:
+        "Supported an ament_python ROS 2 package that predicts future human trajectories from pedsim agent states and robot odometry.",
+      impact:
+        "The node keeps recent motion histories, runs a trained collision-grid/LSTM predictor, and publishes predicted agent trajectories plus RViz markers so downstream navigation components can reason about likely human motion.",
+      tags: ["ROS 2", "Human Trajectory Prediction", "pedsim", "LSTM", "Social Navigation"],
+      links: [
+        {
+          label: "Human trajectory predictor repository",
+          href: "https://github.com/CardiffUniversityComputationalRobotics/human_traj_predictor",
         },
       ],
     },

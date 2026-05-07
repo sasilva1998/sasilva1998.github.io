@@ -87,6 +87,8 @@ export const siteData = {
         "Created a small set of MicroPython libraries to support rosserial communication between ROS 1 and microcontrollers such as the ESP32.",
       impact:
         "The toolkit includes a rosserial implementation for MicroPython with topic advertising, publishing, and subscribing; a message generator for creating uPy classes from ROS .msg files; and the rosserial_msgs TopicInfo support needed for topic negotiation.",
+        image: "/urosserial.jpeg",
+      imageAlt: "Example of use of rosserial for micropython.",
       tags: ["MicroPython", "ROS 1", "rosserial", "ESP32", "Open Source"],
       links: [
         {

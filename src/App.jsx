@@ -50,6 +50,30 @@ function SectionHeading({ eyebrow, title }) {
   );
 }
 
+function AffiliationGrid({ affiliations }) {
+  return (
+    <div className="affiliation-grid" aria-label="Affiliations and profiles">
+      {affiliations.map((affiliation) => (
+        <article className="affiliation-card" key={affiliation.title}>
+          <p className="affiliation-role">{affiliation.role}</p>
+          <h3 className="affiliation-title">{affiliation.title}</h3>
+          <p className="affiliation-description">{affiliation.description}</p>
+          <div className="affiliation-links">
+            {affiliation.links.map((link) => (
+              <SmartLink
+                className="text-link"
+                href={link.href}
+                key={`${affiliation.title}-${link.label}`}
+                label={link.label}
+              />
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
+
 function SkillsSnapshot({ highlights, groups, researchStrengths, summary }) {
   return (
     <section className="section skills-section reveal delay-2" id="skills">
@@ -241,6 +265,7 @@ function ProjectsPage({ projects }) {
 export default function App() {
   const {
     featuredProject: configuredFeaturedProject,
+    affiliations = [],
     intro,
     kicker,
     name,
@@ -355,6 +380,8 @@ export default function App() {
             <p className="portrait-caption">{photoCaption}</p>
           </aside>
         </div>
+
+        <AffiliationGrid affiliations={affiliations} />
       </header>
 
       <main>

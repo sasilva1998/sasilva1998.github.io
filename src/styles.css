@@ -147,14 +147,14 @@ code {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.85fr);
-  gap: 2rem;
-  margin-top: 2rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.75fr);
+  gap: 1.4rem;
+  margin-top: 1rem;
+  align-items: start;
 }
 
 .hero-copy {
-  padding: 1rem 0.4rem 0.4rem;
+  padding: 0.25rem 0.4rem 0.4rem;
 }
 
 .subpage-copy {
@@ -325,6 +325,7 @@ h1 {
 .paper-card,
 .passion-card,
 .skill-card,
+.affiliation-card,
 .site-footer {
   position: relative;
   overflow: hidden;
@@ -336,6 +337,8 @@ h1 {
 
 .portrait-card {
   padding: 1.25rem;
+  max-width: 560px;
+  justify-self: end;
 }
 
 .portrait-frame {
@@ -437,6 +440,56 @@ h1 {
   color: var(--accent-deep);
   font-weight: 700;
   line-height: 1.2;
+}
+
+.affiliation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.hero > .affiliation-grid {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.9rem;
+}
+
+.affiliation-card {
+  min-height: 100%;
+  padding: 1rem;
+}
+
+.affiliation-role {
+  margin: 0 0 0.55rem;
+  color: var(--accent-deep);
+  font-family: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.affiliation-title {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.18;
+}
+
+.affiliation-description {
+  margin: 0.75rem 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.affiliation-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.95rem;
+}
+
+.affiliation-links .text-link {
+  margin-top: 0;
 }
 
 .skills-grid {
@@ -759,12 +812,18 @@ h2 {
   }
 
   .skills-highlight-row,
+  .affiliation-grid,
   .skills-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hero-copy {
     padding-top: 0.2rem;
+  }
+
+  .portrait-card {
+    max-width: none;
+    justify-self: stretch;
   }
 
   h1 {
@@ -783,6 +842,7 @@ h2 {
   .paper-card,
   .passion-card,
   .skill-card,
+  .affiliation-card,
   .site-footer,
   .portrait-card {
     border-radius: 24px;
@@ -810,11 +870,13 @@ h2 {
   .paper-card,
   .passion-card,
   .skill-card,
+  .affiliation-card,
   .site-footer {
     padding: 1.15rem;
   }
 
   .skills-highlight-row,
+  .affiliation-grid,
   .skills-grid {
     grid-template-columns: 1fr;
   }

@@ -93,6 +93,48 @@ export const siteData = {
     "Learning-informed motion planning",
     "Technical writing and peer-reviewed publication",
   ],
+  affiliations: [
+    {
+      title: "Cardiff University Computational Robotics",
+      role: "Research team",
+      description:
+        "Part of Cardiff University's Computational Robotics team, working around robot navigation, planning, and social robotics research.",
+      links: [
+        {
+          label: "Team page",
+          href: "https://cardiffuniversitycomputationalrobotics.github.io/#/",
+        },
+        {
+          label: "GitHub",
+          href: "https://github.com/CardiffUniversityComputationalRobotics",
+        },
+      ],
+    },
+    {
+      title: "FunPythonEC",
+      role: "Community",
+      description:
+        "Member of FunPython, an Ecuadorian community for sharing robotics, programming, and embedded systems knowledge.",
+      links: [
+        {
+          label: "GitHub",
+          href: "https://github.com/FunPythonEC",
+        },
+      ],
+    },
+    {
+      title: "sasilva1998",
+      role: "Project portfolio",
+      description:
+        "Personal GitHub profile where I publish robotics, MicroPython, ROS, and teaching projects.",
+      links: [
+        {
+          label: "GitHub",
+          href: "https://github.com/sasilva1998",
+        },
+      ],
+    },
+  ],
   primaryLink: {
     label: "See latest project",
     href: "#project",

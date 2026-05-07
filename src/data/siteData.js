@@ -34,6 +34,7 @@ export const siteData = {
         "Robot manipulation",
         "Social agents simulation",
         "Human trajectory prediction",
+        "Gazebo/Isaac Sim"
       ],
     },
     {
